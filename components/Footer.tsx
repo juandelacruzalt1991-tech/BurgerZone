@@ -147,7 +147,7 @@ export default function Footer() {
             <p className="text-gray-500 text-sm">
               &copy; {new Date().getFullYear()} Burger Zone Grill & Cafeteria. All rights reserved.
             </p>
-            <div className="flex items-center gap-2 text-[10px] text-gray-600 font-bold uppercase tracking-widest">
+            <div className="flex items-center gap-2 text-xs text-gray-300 font-semibold uppercase tracking-wider mt-1">
               <span className="w-1.5 h-1.5 bg-yellow-accent rounded-full"></span>
               5% VAT Included in Menu Prices
             </div>
