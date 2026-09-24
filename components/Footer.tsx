@@ -129,8 +129,9 @@ export default function Footer() {
                 title="Burger Zone Location Map"
               ></iframe>
               <a 
-                href="https://maps.app.goo.gl/yLzL7Z..." 
+                href="https://www.google.com/maps/dir/?api=1&destination=Burger+Zone+grill+%26+cafeteria+Shabiya+10+MBZ+City+Abu+Dhabi" 
                 target="_blank" 
+                rel="noopener noreferrer"
                 className="absolute inset-0 bg-charcoal/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               >
                 <div className="bg-yellow-accent text-teal-deepest px-4 py-2 rounded-full font-bold text-sm shadow-xl">Open Directions</div>
