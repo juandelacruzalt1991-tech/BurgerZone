@@ -26,7 +26,7 @@ export default function HeroSection() {
               MBZ City, Abu Dhabi
             </h2>
             <h1 className="font-heading font-black text-5xl md:text-7xl lg:text-8xl text-white leading-none mb-4 drop-shadow-lg">
-              <span className="block text-stroke-2 text-transparent">BURGER</span>
+              <span className="block text-white font-black drop-shadow-md">BURGER</span>
               <span className="block text-yellow-accent">ZONE</span>
             </h1>
             <p className="text-xl md:text-2xl text-off-white font-medium mb-2 w-max">
