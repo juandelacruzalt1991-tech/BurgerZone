@@ -31,43 +31,53 @@ export default function Navbar() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a href="#" className="font-heading font-black text-2xl tracking-tight text-white flex items-center gap-2">
-              <span className="bg-yellow-accent text-teal-deepest px-2 py-1 rounded-md transform -skew-x-12">BURGER</span>
-              <span>ZONE</span>
-            </a>
+            <motion.a 
+              href="#" 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="font-heading font-black text-2xl tracking-tight text-white flex items-center gap-2 group"
+            >
+              <span className="bg-yellow-accent text-teal-deepest px-2 py-1 rounded-md transform -skew-x-12 transition-transform group-hover:skew-x-0 duration-300">BURGER</span>
+              <span className="group-hover:text-yellow-accent transition-colors duration-300">ZONE</span>
+            </motion.a>
 
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
-                <a
+                <motion.a
                   key={link.name}
                   href={link.href}
-                  className="text-white hover:text-yellow-accent font-medium text-sm transition-colors flex items-center gap-1.5"
+                  whileHover={{ y: -2 }}
+                  className="text-white hover:text-yellow-accent font-medium text-sm transition-colors flex items-center gap-1.5 relative group"
                 >
-                  <link.icon className="w-4 h-4" />
+                  <link.icon className="w-4 h-4 transition-transform group-hover:rotate-12" />
                   {link.name}
-                </a>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-accent transition-all group-hover:w-full"></span>
+                </motion.a>
               ))}
             </nav>
 
             {/* Desktop CTA */}
             <div className="hidden md:block">
-              <a 
+              <motion.a 
                 href="tel:+97126663635"
-                className="bg-yellow-accent hover:bg-yellow-warm text-charcoal font-bold py-2.5 px-6 rounded-full transition-transform hover:scale-105 active:scale-95 flex items-center gap-2"
+                whileHover={{ scale: 1.05, boxShadow: "0 10px 15px -3px rgba(255, 215, 0, 0.3)" }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-yellow-accent hover:bg-yellow-warm text-charcoal font-bold py-2.5 px-6 rounded-full transition-colors flex items-center gap-2"
               >
                 <PhoneCall className="w-4 h-4" />
                 Order Now
-              </a>
+              </motion.a>
             </div>
 
             {/* Mobile Menu Toggle */}
-            <button
+            <motion.button
+              whileTap={{ scale: 0.8 }}
               className="md:hidden text-white p-2"
               onClick={() => setMobileMenuOpen(true)}
             >
               <Menu className="w-6 h-6" />
-            </button>
+            </motion.button>
           </div>
         </div>
       </header>

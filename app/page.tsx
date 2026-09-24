@@ -8,7 +8,11 @@ import KidsZone from "@/components/KidsZone";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
-export default function Home() {
+import { getMenuData } from "@/lib/menuDb";
+
+export default async function Home() {
+  const menuItems = getMenuData();
+
   return (
     <main className="min-h-screen bg-off-white">
       <Navbar />
@@ -19,7 +23,7 @@ export default function Home() {
       <FeaturedSection />
       
       {/* Interactive Menu Grid */}
-      <MenuSection />
+      <MenuSection initialItems={menuItems} />
       
       {/* Specialty Sections */}
       <HealthyCorner />

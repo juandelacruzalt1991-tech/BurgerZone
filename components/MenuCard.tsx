@@ -27,43 +27,66 @@ export default function MenuCard({ item, index }: MenuCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.5) }} // Cap delay for large lists
-      className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group flex flex-col h-full"
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      whileHover={{ 
+        y: -10,
+        transition: { duration: 0.3, ease: "easeOut" }
+      }}
+      transition={{ duration: 0.5, delay: Math.min(index * 0.05, 0.4) }}
+      className="bg-white rounded-3xl p-5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-100/50 hover:shadow-[0_20px_40px_-15px_rgba(26,171,160,0.15)] transition-all duration-500 group flex flex-col h-full relative"
     >
-      <div className="relative mb-4 overflow-hidden rounded-xl bg-gray-100 aspect-[4/3] flex items-center justify-center">
-        <div className={`w-full h-full flex items-center justify-center transition-transform duration-500 group-hover:scale-110 ${colorClass}`}>
-          {/* Using a placeholder SVG pattern / food emoji based on category would be ideal, using a prominent font character for now */}
-          <span className="font-heading font-black text-6xl opacity-30 select-none">
+      <div className="relative mb-5 overflow-hidden rounded-2xl bg-gray-50 aspect-[4/3] flex items-center justify-center">
+        <motion.div 
+          className={`w-full h-full flex items-center justify-center transition-all duration-700 group-hover:scale-110 ${colorClass}`}
+        >
+          <span className="font-heading font-black text-6xl opacity-20 select-none group-hover:opacity-40 transition-opacity duration-500">
             {item.name.charAt(0)}
           </span>
-        </div>
+        </motion.div>
         
         {item.badge && (
-          <div className="absolute top-3 right-3 bg-yellow-accent text-teal-deepest text-xs font-bold px-2.5 py-1 rounded-full shadow-sm z-10">
+          <motion.div 
+            animate={{ 
+              scale: [1, 1.05, 1],
+            }}
+            transition={{ 
+              duration: 2, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            }}
+            className="absolute top-3 right-3 bg-yellow-accent text-teal-deepest text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md z-10 border border-white/20"
+          >
             {item.badge}
-          </div>
+          </motion.div>
         )}
       </div>
 
       <div className="flex-1 flex flex-col">
         <div className="flex justify-between items-start gap-2 mb-1">
-          <h3 className="font-bold text-gray-900 leading-tight group-hover:text-teal-primary transition-colors">
+          <h3 className="font-heading font-bold text-lg text-gray-900 leading-tight group-hover:text-teal-primary transition-colors duration-300">
             {item.name}
           </h3>
         </div>
-        <p className="text-sm font-medium text-gray-500 mb-3 font-arabic" dir="rtl">
+        <p className="text-sm font-medium text-gray-400 mb-4 font-arabic opacity-80" dir="rtl">
           {item.arabicName}
         </p>
         
-        <div className="mt-auto flex items-center justify-between pt-2 border-t border-gray-50">
-          <div className="flex items-center gap-1 font-bold text-lg text-teal-dark">
-            <span className="text-xs font-normal text-gray-400">AED</span>
-            {displayPrice}
+        <div className="mt-auto flex items-center justify-between pt-4 border-t border-gray-50">
+          <div className="flex flex-col">
+            <span className="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-0.5">Price</span>
+            <div className="flex items-center gap-1 font-heading font-black text-xl text-teal-deepest">
+              <span className="text-[10px] font-bold text-teal-primary/50">AED</span>
+              {displayPrice}
+            </div>
           </div>
-          <button className="bg-off-white hover:bg-yellow-accent text-teal-dark p-2 rounded-full transition-colors active:scale-95">
-            <Plus className="w-5 h-5" />
-          </button>
+          <motion.button 
+            whileHover={{ scale: 1.1, rotate: 90 }}
+            whileTap={{ scale: 0.9 }}
+            className="bg-teal-primary/10 hover:bg-yellow-accent text-teal-deepest p-3 rounded-2xl transition-colors duration-300 shadow-sm"
+          >
+            <Plus className="w-5 h-5 stroke-[3]" />
+          </motion.button>
         </div>
       </div>
     </motion.div>
