@@ -9,7 +9,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-teal-deepest text-white pt-20 pb-10 border-t-[12px] border-yellow-accent relative overflow-hidden">
+    <footer id="location" className="bg-teal-deepest text-white pt-20 pb-10 border-t-[12px] border-yellow-accent relative overflow-hidden scroll-mt-10">
       {/* Subtle Background Glow */}
       <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-yellow-accent/5 rounded-full blur-[100px]"></div>
       
