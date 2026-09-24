@@ -46,6 +46,13 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-text-stroke: 2px #000000;
 }
 
+.burger-zone-title {
+  color: #FFCC00;
+  -webkit-text-stroke: 7px #000000;
+  paint-order: stroke fill;
+  filter: drop-shadow(4px 4px 0px #383838);
+}
+
 /* Custom scrollbar for horizontal categories */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
